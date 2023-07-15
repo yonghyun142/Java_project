@@ -1,14 +1,16 @@
 package project1;
 
+import java.util.Scanner;
+
 public class Service {
 	public static void main(String[] args)throws Exception {
 		Scanner scanner = new Scanner(System.in); //입력 받는 객체
-		BoardDAO dao = new BoardDAO(); //게시판 접근 객체
+		DAO dao = new DAO(); //게시판 접근 객체
 		
 		//게시판 프로그램
 		while(true) {
 			dao.getBoardList(); //게시판 목록 불러오기
-			int answer = Integer.pareInt(scanner.nextLine());
+			int answer = Integer.parseInt(scanner.nextLine());
 			
 			if(answer == 1) { //새글작성
 				dao.boardInsert();
@@ -43,4 +45,5 @@ public class Service {
 		}
 		System.out.println("게시판 프로그램이 종료되었습니다.");
 	}
+	
 }
