@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
+
 public class DAO { //게시판 기능
 	Scanner scanner = new Scanner(System.in);
 	List<VO> boardList = new ArrayList<>(); //게시글 객체를 저장할 List
