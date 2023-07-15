@@ -16,14 +16,14 @@ public class DAO { //게시판 기능
 	List<VO> boardList = new ArrayList<>(); //게시글 객체를 저장할 List
 	
 	public void getBoardList() { //게시판 목록 불러오기
-		System.out.println("             <<게시판>>");
-		System.out.println("번호              제목                             작성자               작성일   ");
+		System.out.println("               <<게시판>>");
+		System.out.println("  번호        	     제목            	   작성자                      작성일   ");
 		System.out.println("------------------------------------------------");
 		if (boardList.isEmpty()) { //게시글 객체들을 담은 리스트에 아무것도 없는 경우
 			System.out.println("                   게시글 없음");
 		} else {
 			for(VO vo : boardList) { //글 번호를 1부터 시작하기 위해 인덱스 +1
-				System.out.printf("%-3d | %-15s | %3s | %-1s\n", boardList.indexOf(vo) + 1, vo.getTitle(),
+				System.out.printf("%-7d | %-27s | %-17s | %-24s\n", boardList.indexOf(vo) + 1, vo.getTitle(),
 						vo.getWriter(), vo.getRegistDate());
 			}
 		}
@@ -47,7 +47,7 @@ public class DAO { //게시판 기능
 			return;
 		}
 		
-		System.out.print("작성자(취소 : quit):"); //내용 입력
+		System.out.print("내용(취소 : quit):"); //내용 입력
 		String content =scanner.nextLine();
 		if(title.equals("quit")) {
 			System.out.println("작성이 취소되었습니다.");
@@ -113,7 +113,7 @@ public class DAO { //게시판 기능
 			return;
 		}
 		
-		System.out.println("글내용(취소 : quit) : "); //내용 수정
+		System.out.println("내용(취소 : quit) : "); //내용 수정
 		String content = scanner.nextLine();
 		if(content.equals("quit")) {
 			System.out.println("수정이 취소되었습니다.");
@@ -139,7 +139,7 @@ public class DAO { //게시판 기능
 		
 		VO vo = new VO();
 		vo = boardList.get(select -1); //선택한 번호의 객체
-		vo = boardList.get(select -1); //해당 인덱스의 있는 객체 삭제
+		boardList.remove(boardList.indexOf(vo)); //해당 인덱스의 있는 객체 삭제
 		System.out.println(select +"번 글이 삭제되었습니다.");
 	}
 	
