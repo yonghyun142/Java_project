@@ -1,6 +1,6 @@
 package project1;
 
-public class VO {
+public class VO { //게시글 객체
 	private int num;
 	private String title;
 	private String content;
